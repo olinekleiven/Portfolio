@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/categories.css">
+    <link rel="stylesheet" href="style/hobbies.css">
+    <title>Hobbies</title>
+</head>
+<body>
+
+<!-- Header Section -->
+<header id="header">
+    <a href="home.html" class="back-button" aria-label="Go back to the home page">
+        <span class="arrow-top"></span>
+        <span class="arrow-bottom"></span>
+    </a>
+    <h1>My Hobbies</h1>
+</header>
+
+<!-- Fullscreen Introduction Section -->
+<section id="intro-section" class="intro-section">
+    <div id="intro-content" class="intro-content">
+        <p>Welcome! Take a peek into my favorite hobbies—activities. This is what make me happy, inspirates me, and fill my spare time with energy and passion!</p>
+        <div id="button-container" class="button-container">
+            <button onclick="scrollToSection('skiing')">Skiing</button>
+            <button onclick="scrollToSection('surfing')">Surfing</button>
+            <button onclick="scrollToSection('football')">Football</button>
+
+        </div>
+    </div>
+</section>
+
+<!-- Hobbies Sections -->
+<section id="skiing-section" class="hobby-section">
+    <article id="skiing-content" class="hobby-content">
+        <header>
+            <h2>Skiing</h2>
+        </header>
+        <p>Skiing connects me to nature, and nothing beats the feeling of gliding through powder snow.</p>
+        <p><strong>Why do I like it?</strong> Its fun, and you can go very fast if you want to</p>
+        <p><strong>How long have i liked it?</strong> Always liked to, but got a bigger interest after "Folkehøgskule"</p>
+        <div id="skiing-image" class="sport-image" style="background-image: url('images/skiing.jpg');" aria-label="Skiing"></div>
+        <button class="scroll-top-button" onclick="scrollToTop()" aria-label="Scroll to top">
+            ↑
+        </button>    </article>
+</section>
+
+<section id="surfing-section" class="hobby-section">
+    <article id="surfing-content" class="hobby-content">
+        <header>
+            <h2>Surfing</h2>
+        </header>
+        <p>Surfing is really fun, i and learned it on Folkehøgskule. I really love to bath with the suit after i have surfed aswell. This picture is captured i Lofoten, a magic moment after a suring lesson.</p>
+        <p><strong>Why do I like it?</strong> Its really fun to glide on waves</p>
+        <p><strong>How long have i liked it?</strong> Since 2021, when i managed to stand on the board</p>
+        <div id="surfing-image" class="sport-image" style="background-image: url('images/IMG_5081 3.jpg');" aria-label="Swimming"></div>
+        <button class="scroll-top-button" onclick="scrollToTop()" aria-label="Scroll to top">
+            ↑
+        </button>
+            </article>
+</section>
+
+<section id="football-section" class="hobby-section">
+    <article id="football-content" class="hobby-content">
+        <header class="hobby-header">
+            <h2>Football</h2>
+        </header>
+        <div class="hobby-description">
+            <p>Football is my passion. I love the team spirit and the excitement of the game. I play on a team named BSI here in Bergen with other students.</p>
+            <p><strong>Why do I like it?</strong> It's simply fun and keeps me active!</p>
+            <p><strong>How long have i liked it?</strong> since i was 6 years old</p>
+        </div>
+        <div id="football-image" class="sport-image" style="background-image: url('images/bsi_football.jpg');" aria-label="Football"></div>
+        <button class="scroll-top-button" onclick="scrollToTop()" aria-label="Scroll to top">
+            ↑
+        </button>    </article>
+</section>
+
+<!-- Gives the navigation after button click to a smooth animation -->
+<script>
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(`${sectionId}-section`);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.error(`Section with ID ${sectionId} not found.`);
+        }
+    }
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+    
+</body>
+</html>
+
+
+<!-- no matter how long I've been playing with this, I always found new things I could do and improve
+I would like that when you click on each hobby section here, it just came up, and the start of your new hobby
+was hidden as usual. I tried to give the different shared ideas, specify the height of each hobby section, but I couldn't get it
+to work as I wanted. That's what I should have improved here. On the otehr hand, the site looks great -->

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="flashcards.css">
+</head>
+<body>
+    <header>
+        <h1>Flashcards for Diagrammer</h1>
+        <p>Klikk på kortet for å avsløre svaret</p>
+        <a href="../skills.html" class="back-button" aria-label="Back to home section">
+            <span class="arrow-top"></span>
+            <span class="arrow-bottom"></span>
+        </a>
+    </header>
+    <main>
+        <div id="card-container"></div>
+        <div class="buttons-container">
+            <button id="prevBtn">Forrige</button>
+            <button id="nextBtn">Neste</button>
+        </div>
+    </main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Hent lagret flashcard-indeks fra localStorage, eller sett standard til 0
+    let currentCard = parseInt(localStorage.getItem('currentCard')) || 0;
+
+
+    // Legger til bildene fra "Diagrams"-mappen
+    const flashcards = [
+        { img: 'Diagrams/Activitydiagram.png', text: 'Activitydiagram', info: 'Describes the step-by-step workflows of activities to be performed in a system for reaching aspecific goal.', info2:"Shows the overall flow of data and control for performing the task"},
+        { img: 'Diagrams/Layer-structure.png', text: 'Layer structure', info: "Useful module structure"  },
+        { img: 'Diagrams/Behavior-diagram.png', text: 'Behavior Diagram', info: 'A visual representation of a state transition', info2: 'A visual representation of a sequence of events' },
+        { img: 'Diagrams/Deploymentdiagram.png', text: 'Deployment diagram', info: 'Describes the way in which the software artifacts are deployed on the hardware used in systems implementations.', info2:'It shows a systems physical layout, revealing which pieces of software run on what piece of hardware.' },
+        { img: 'Diagrams/Usecasediagram.png', text: 'Usecase diagram', info:'The purpose is to represent the functionality provided by a system in terms of actors and their goals.' },
+        { img: 'Diagrams/Client-server-architechture.png', text: 'Client server architechture' },
+        { img: 'Diagrams/BPNM-choregraphy-diagram.png', text: 'BPNM choreography diagram' },
+        { img: 'Diagrams/BPNM-collaboration-diagram.png', text: 'BPNM collaboration diagram' },
+        { img: 'Diagrams/BPNM-conversation-diagram.png', text: 'BPNM conversation diagram' },
+        { img: 'Diagrams/BPNM-deisgn-element.png', text: 'BPNM design element' },
+        { img: 'Diagrams/BPNM-process-diagram.png', text: 'BPNM process diagram' },
+        { img: 'Diagrams/classdiagram.png', text: 'Class Diagram', info:"Class diagram in UML is a visual representation of the static structure of a software", info2:"It does not change, it have the same structure." },
+        { img: 'Diagrams/Collaborationdiagram.png', text: 'Collaboration diagram' },
+        { img: 'Diagrams/Component diagram.png', text: 'Component diagram' },
+        { img: 'Diagrams/Component-and-connector-structure.png', text: 'Component and connector structure' },
+        { img: 'Diagrams/Data-model.png', text: 'Data-model', info: "Useful module structure" },
+        { img: 'Diagrams/Decomposition-structure.png', text: 'Decomposition structure', info: "Useful module structure" },
+        { img: 'Diagrams/Deploymnet-STRUCTURE.png', text: 'Deployment structure' },
+        { img: 'Diagrams/Interactiondiagram.png', text: 'Interactiondiagram <br><br> Package diagram' },
+        { img: 'Diagrams/MVC.png', text: 'MVC' },
+        { img: 'Diagrams/Object-diagram.png', text: 'Object diagram', info: "The purpose is to model the interactions between objects or classes in a system"},
+        { img: 'Diagrams/processmodeling.png', text: 'processmodeling' },
+        { img: 'Diagrams/Quality-attribute-scenarios.png', text: 'Quality attribute scenarios' },
+        { img: 'Diagrams/Sequencediagram.png', text: 'Sequencediagram' },
+        { img: 'Diagrams/Statemachinediagrams.png', text: 'Statemachinediagrams' },
+        { img: 'Diagrams/TDD.png', text: 'TDD' },
+        { img: 'Diagrams/The-agile-fluency-model.png', text: 'The agile fluency model' },
+        { img: 'Diagrams/The-road-mastery.png', text: 'The road mastery' },
+        { img: 'Diagrams/UMLdrawing.png', text: 'UMLdrawing' },
+        { img: 'Diagrams/Uses-structure.png', text: 'Uses structure', info: "Useful module structure"  },
+        { img: 'Diagrams/WFMC-REFERENCE-MODEL.png', text: 'WFMC Reference model' },
+        { img: 'Diagrams/Class-generalization-structure.png', text: 'Class generalization structure',info: "Useful module structure"  }
+    ];
+    
+    const cardContainer = document.getElementById('card-container');
+
+function renderCard(index) {
+    const card = flashcards[index];
+    cardContainer.innerHTML = `
+        <div class="flashcard">
+            <div class="front">
+                <img src="${card.img}" alt="${card.text}">
+            </div>
+            <div class="back">
+                <h2>${card.text}</h2>
+                <p>${card.info || ''}</p>
+                <p>${card.info2 || ''}</p>    
+            </div>
+        </div>
+    `;
+    document.querySelector('.flashcard').addEventListener('click', function () {
+        this.classList.toggle('flipped');
+    });
+}
+
+// Oppdater localStorage med gjeldende indeks
+function updateLocalStorage() {
+    localStorage.setItem('currentCard', currentCard);
+}
+
+document.getElementById('prevBtn').addEventListener('click', function () {
+    currentCard = (currentCard > 0) ? currentCard - 1 : flashcards.length - 1;
+    renderCard(currentCard);
+    updateLocalStorage();
+});
+
+document.getElementById('nextBtn').addEventListener('click', function () {
+    currentCard = (currentCard < flashcards.length - 1) ? currentCard + 1 : 0;
+    renderCard(currentCard);
+    updateLocalStorage();
+});
+
+// Render det lagrede flashcardet ved lasting
+renderCard(currentCard);
+});
+    </script>
+</body>
+</html>

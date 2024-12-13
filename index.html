@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oline Kleiven Portfolio</title>
+  <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+  <section class="welcome-section">
+    <h1>Hi, I’m Oline Kleiven</h1>
+    <p>Click the arrow or scroll/swipe down to continue</p>
+  </section>
+
+  <section class="custom-arrow" onclick="startTransition()">
+    <span class="arrow arrow-bottom"></span>
+  </section>
+
+  <div id="overlay" class="overlay"></div>
+
+  <script>
+    let startY = 0; // Touch start position
+    let scrolled = false; // Track if user scrolled
+
+    // Start transition function
+    function startTransition() {
+      document.getElementById('overlay').classList.add('active');
+      setTimeout(() => {
+        window.location.href = 'Pages/home.html';
+      }, 1000); // 1 second delay
+    }
+
+    // Detect touch start for swipe
+    function handleTouchStart(event) {
+      startY = event.touches[0].clientY;
+    }
+
+    // Detect touch end for swipe
+    function handleTouchEnd(event) {
+      const endY = event.changedTouches[0].clientY;
+      if (startY - endY > 50) { // Threshold for downward swipe
+        startTransition();
+      }
+    }
+
+    // Detect scroll position for mouse scrolling
+    function handleScroll() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !scrolled) {
+        scrolled = true;
+        startTransition();
+      }
+    }
+
+    // Add event listeners for touch and scroll
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+</html>

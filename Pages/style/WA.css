@@ -1,0 +1,126 @@
+
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #eee5e5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.document {
+    background: white;
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.header p {
+    font-size: 14px;
+    color: #555;
+}
+h2 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+ul {
+    margin: 10px 0 20px 20px;
+}
+.sources {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Avstand fra toppen */
+    left: 40px; /* Avstand fra venstre */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #333; /* Fits better here to start with dark color */
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* Left-arrow pil */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); 
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: #ffffff; /* gets lighter when you hover*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; 
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s; 
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-container img {
+    max-width: 30%; /* Gjør bildene mindre */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,164 @@
+/* Google Fonts Import */
+/* i*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee5e5;
+    animation: fadeIn 0.5s ease-in;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Distance from the top */
+    left: 40px; /* Distance from the left */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #333; 
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* the left pointing side of the arrow */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; /* hover farge snaimasjon starter litt senere, slik den fyller seg fra bunn til topp*/ 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); /* the other part of the arrow under */
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; /* hover color, so the lower part of the arrow get colored, for smooth animation*/ 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: #ffffff;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; /* smooth transition */
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s;  /* time time that the arrow get filled with color when we hover*/
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+
+
+/* Responsive design for different devices */
+/* For mobile */
+@media only screen and (max-width: 600px) {
+    .back-button {
+        top: 20px;
+        left: 20px;
+        height: 40px;
+        width: 35px;
+    }
+
+    .back-button .arrow-top,
+    .back-button .arrow-bottom {
+        height: 7px;
+    }
+}
+
+/* For iPad */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .back-button {
+        top: 30px;
+        left: 30px;
+        height: 50px;
+        width: 45px;
+    }
+
+    .back-button .arrow-top,
+    .back-button .arrow-bottom {
+        height: 8px;
+    }
+}
+
+/* For Mac */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .back-button {
+        top: 40px;
+        left: 40px;
+        height: 60px;
+        width: 50px;
+    }
+
+    .back-button .arrow-top,
+    .back-button .arrow-bottom {
+        height: 10px;
+    }
+}
+
+/* For large screens between Mac and extra large */
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
+    .back-button {
+        top: 45px;
+        left: 45px;
+        height: 65px;
+        width: 55px;
+    }
+
+    .back-button .arrow-top,
+    .back-button .arrow-bottom {
+        height: 12px;
+    }
+}
+
+/* For extra large screens */
+@media only screen and (min-width: 1601px) {
+    .back-button {
+        top: 50px;
+        left: 50px;
+        height: 70px;
+        width: 60px;
+    }
+
+    .back-button .arrow-top,
+    .back-button .arrow-bottom {
+        height: 12px;
+    }
+}

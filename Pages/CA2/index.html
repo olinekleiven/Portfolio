@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="themeStylesheet" rel="stylesheet" href="style/sad.css">
+    <title>Emotional Poem</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeSwitch = document.getElementById('themeSwitch');
+            const themeStylesheet = document.getElementById('themeStylesheet');
+            const themeLabel = document.querySelector('.theme_switch_label span');
+            // Function to update the theme based on the current theme
+            function updateTheme() {
+                const isHappyMode = themeStylesheet.getAttribute('href') === 'style/happy.css';
+                themeStylesheet.setAttribute('href', isHappyMode ? 'style/sad.css' : 'style/happy.css');
+                themeLabel.textContent = isHappyMode ? 'Sad Mode' : 'Happy Mode';
+            }
+            // Event listener for the theme switch
+            themeSwitch.addEventListener('click', updateTheme);
+
+            // Initial theme setup
+            updateTheme();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="headline">A poem makes different moods</h1>
+
+           <!-- Back button -->
+        <a href="../skills.html" class="back-button" aria-label="Back to home section">
+            <span class="arrow-top"></span>
+            <span class="arrow-bottom"></span>
+        </a>
+
+    </header>
+    <section>
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+        <label for="themeSwitch" class="theme_switch_label">
+            <span>Happy Mode</span>
+        </label>
+    </section>
+    <main>
+        <aside id="leftImages">
+            <section id="mind"><img src="images/mind.jpg" alt="Mind Image"></section>
+            <section id="heart"><img src="images/heart.jpg" alt="Heart Image"></section>
+        </aside>
+        <div class="frame-container">
+            <img src="images/frame.jpg" alt="Frame Image" id="frame">
+            <article id="poem">
+                <h2>"Moments"</h2>
+                <p>
+                    Each day brings new moments to see,<br>
+                    some we hold close, some we set free,<br>
+                    and some we don’t grasp till the end of the day,<br>
+                    when time shows their meaning in its own way.
+                <br><br>
+                    Some moments we quickly forget,<br>
+                    while others, in hearts, are kept set.<br>
+                    Some memories we treasure as gold,<br>
+                    even if their colors grow old.<br>
+                <br>
+                    Each moment’s a gift, small and true,<br>
+                    a piece of time that slips from view.<br>
+                    Maybe that’s why they mean so much –<br>
+                    they come and go, just out of touch.
+                </p>
+            </article>
+        </div>
+
+        <aside id="rightImages">
+            <section id="hug"><img src="images/hug.jpg" alt="Hug Image"></section>
+            <section id="down"><img src="images/down.jpg" alt="Down Image"></section>
+        </aside>
+    </main>
+</body>
+</html>
+
+<!--
+All my pictures are drawn by myself, and processed so that they are transparent, with no background. 
+In this way, they look like stickers, or symbols. I think this was really cool. 
+I have tried to make two very different types of css as well, not just basic color and font changes. 
+Hope this satifies the CA2 requirements!-->

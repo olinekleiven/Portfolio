@@ -1,0 +1,222 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+p {
+    margin: 20px;
+    color: #555;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background-color: #eaeaea;
+    padding: 2px 4px;
+    font-family: monospace;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+blockquote {
+    margin: 20px;
+    padding: 10px;
+    background-color: #eaeaea;
+    border-left: 5px solid #ccc;
+}
+
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+q:before {
+    content: open-quote;
+}
+
+q:after {
+    content: close-quote;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.question-box {
+    border: 2px solid #ffffff;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f37bd3;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+
+/* Styling for the ordered list */
+.question-box ol {
+    counter-reset: question-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.question-box ol li {
+    counter-increment: question-counter;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+}
+
+
+.question-box ol li::before {
+    content: counter(question-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff; /* Gjør tallene hvite */
+    background-color: #333; /* Bakgrunnsfarge for tallene */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.question-box:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+.question-box label {
+    color: #ffffff; /* White label color */
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.question-box label:hover {
+    color: #ffcc00; /* Change label color on hover */
+}
+
+.nullstill {
+    background-color: #ffcc00;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth color transition */
+}
+
+.nullstill:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+}
+
+
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Avstand fra toppen */
+    left: 40px; /* Avstand fra venstre */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #333; /* Fits better here to start with white color */
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* Left-arrow pil */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); 
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: rgb(220, 111, 171); /* gets dark when you hover*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; 
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s; 
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}

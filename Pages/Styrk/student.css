@@ -1,0 +1,249 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* Body med gradient bakgrunn og animasjon */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #8fd3f4, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* makes a really cool and gradien background, with color changes spesified on body*/
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 30px;
+    font-size: 2.0rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Chat-container styling */
+.chat-container {
+    max-width: 600px;
+    height: 450px; /* i wanted to make the heigh short, so the user can scroll down og the messanges, think this was cool and different*/
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+/* Meldinger */
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Brukerens melding */
+.user {
+    align-self: flex-end;
+    background-color: #6c63ff;
+    color: white;
+    margin-left: auto;
+    text-align: left;
+}
+
+/* Styrks melding */
+.styrk {
+    align-self: flex-start;
+    background-color: #e4e4e4;
+    color: black;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Tekst i meldinger */
+.message p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Ikoner */
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+    margin-right: 10px;
+}
+.user .icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* Skjul scrollbar, vis ved hover */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #6c63ff;
+    border-radius: 12px;
+    visibility: hidden;
+}
+
+.chat-container:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Avstand fra toppen */
+    left: 40px; /* Avstand fra venstre */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #ffffff; /* Fits better here to start with white color */
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* Left-arrow pil */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); 
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: #333; /* gets dark when you hover*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; 
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s; 
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+
+
+
+/* Media queries for smaller screens */
+@media only screen and (min-width: 501px) and (max-width: 1024px){
+    header {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-top: 50px; /* Juster margin-top for å flytte headeren lenger ned */
+    }
+
+    .chat-container {
+        max-width: 70%; /* Juster bredden for mindre skjermer */
+        height: 500px; /* Juster høyden for mindre skjermer */
+        padding: 10px; /* Juster padding for veldig små skjermer */
+    }
+
+    .message {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+}
+
+
+/* Media queries for smaller screens */
+@media only screen and (min-width: 1024px) and (max-width: 1440px){
+    header {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-top: 50px; /* Juster margin-top for å flytte headeren lenger ned */
+    }
+
+    .chat-container {
+        max-width: 70%; /* Juster bredden for mindre skjermer */
+        height: 500px; /* Juster høyden for mindre skjermer */
+        padding: 10px; /* Juster padding for veldig små skjermer */
+    }
+
+    .message {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    header h1 {
+        font-size: 1em; /* Reduserer tekststørrelsen */
+        margin-top: 15px; /* Justerer toppmargin for bedre spacing */
+        text-align: center; /* Sørger for at teksten er sentrert */
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    header h1 {
+        font-size: 0.8em; /* Gjør overskriften mindre for små skjermer */
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    header h1 {
+        font-size: 0.6em; /* Gjør overskriften mindre for små skjermer */
+    }
+}

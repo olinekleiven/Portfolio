@@ -1,0 +1,130 @@
+/* Main grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 40px; /* Distacne bewteen text and picture */
+  align-items: center; 
+  padding: 40px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+/* Style for the tekstsection */
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Contact-button */
+/* Style for call-to-action button */
+.contact-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: start;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #555;
+}
+
+/* Picture-part */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 500px; 
+  border-radius: 10px; /* Make the corner rounder, looked better */
+}
+
+/* Responsivt design */
+
+/* Tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .grid-container {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      text-align: center; 
+  }
+
+  .text-content {
+      align-items: center;
+      padding: 10px;
+  }
+
+  .cta-button {
+      align-self: center; 
+  }
+
+  .image-container img {
+      max-width: 400px;
+  }
+}
+
+/* Devices smaller than tablets, like large phones */
+@media (max-width: 768px) {
+  .grid-container {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      text-align: center; 
+  }
+
+  .text-content {
+      align-items: center;
+      padding: 10px;
+  }
+
+  .cta-button {
+      align-self: center; 
+  }
+
+  .image-container img {
+      max-width: 300px; 
+  }
+}
+
+/* Mobile phone devices */
+@media (max-width: 480px) {
+  .grid-container {
+      grid-template-columns: 1fr; 
+      gap: 10px;
+      text-align: center; 
+  }
+
+  .text-content {
+      align-items: center;
+      padding: 5px;
+  }
+
+  .cta-button {
+      align-self: center; 
+      padding: 8px 16px;
+  }
+
+  .image-container img {
+      max-width: 250px; 
+  }
+}

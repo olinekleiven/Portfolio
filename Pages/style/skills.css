@@ -1,0 +1,134 @@
+/* Styling for the projects container */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fire kolonner */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styling for each project folder */
+.project-folder {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-folder:hover {
+    transform: translateY(-5px);
+}
+
+.project-folder img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.project-folder p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Styling for the project description */
+.project-description {
+    display: none; /* Hides description by default */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.project-folder:hover .project-description {
+    display: block; /* Shows description when you hover */
+}
+
+/* Responsive design for mobile devices */
+@media only screen and (max-width: 600px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr); /* two coloms in the width  */
+    }
+
+    .project-folder p {
+        font-size: 1em;
+    }
+
+    .project-folder img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Responsive design for iPad devices */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr); /* three coloms in the width  */
+    }
+
+    .project-folder p {
+        font-size: 1.1em;
+    }
+
+    .project-folder img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Responsive design for Mac devices */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .projects-container {
+        grid-template-columns: repeat(4, 1fr); /* four coloms in the width  */
+    }
+
+    .project-folder p {
+        font-size: 1.2em;
+    }
+
+    .project-folder img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Responsive design for extra large screens */
+@media only screen and (min-width: 1441px) {
+    .projects-container {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+
+    .project-folder p {
+        font-size: 1.3em;
+    }
+
+    .project-folder img {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Change for smaller device, smaller text font*/
+@media only screen and (max-width: 530px) {
+    header h1 {
+        font-size: 1.6em; 
+        margin-top: 10px; 
+        text-align: center; 
+    }
+    p {
+        font-size: 0.88em;
+        margin-top: 30px;
+    }
+
+    .project-folder p {
+        font-size: 0.88em; 
+    }
+}

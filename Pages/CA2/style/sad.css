@@ -1,0 +1,321 @@
+body {
+    font-family: 'Garamond', serif; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    background: linear-gradient(135deg, rgb(30, 30, 30), rgb(70, 70, 90));
+    color: #d1d1d1;
+    overflow: auto; /* make the page scrollable */
+    text-align: center;
+}
+
+header {
+    color: #e0e0e0;
+    padding: 10px 0;
+    text-align: center;
+    background: rgba(10, 10, 40, 0.8);
+    border-bottom: 1px solid #888;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: rgba(30, 30, 50, 0.85);
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9);
+}
+
+
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Avstand fra toppen */
+    left: 40px; /* Avstand fra venstre */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #ffffff; /* Fits better here to start with white color */
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* Left-arrow pil */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); 
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: #333; /* gets dark when you hover*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; 
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s; 
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+
+
+
+/* Frame styling */
+.frame-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+#frame {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    filter: grayscale(100%);
+    z-index: -1; /* Puts frame behind the poem */
+}
+
+/* Styling for the poem article */
+#poem {
+    color: #dcdcdc;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border: 2px solid rgba(150, 150, 170, 0.2);
+    border-radius: 5px; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    font-size: 18px; 
+    max-width: 500px; 
+    margin: auto;
+    text-align: justify;
+    font-style: italic;
+}
+
+/* Common size for the images */
+#mind, #heart, #hug, #down {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Ensures the images are above other elements */
+}
+
+/* Unique positioning for each image */
+#mind {
+    top: 10%;
+    left: 5%;
+}
+
+#heart {
+    top: 10%;
+    right: 5%;
+}
+
+#hug {
+    bottom: 10%;
+    left: 5%;
+}
+
+#down {
+    bottom: 10%;
+    right: 5%;
+}
+
+/* Image styling and cool hover effect */
+#mind img, #heart img, #hug img, #down img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+#mind:hover img, #heart:hover img, #hug:hover img, #down:hover img {
+    transform: scale(1.1) rotate(-5deg);
+    filter: sepia(60%);
+}
+
+/* Responsive adjustments, so it fits different devices */
+@media (max-width: 1200px) {
+    #poem {
+        width: 70%;
+        font-size: 14px;
+    }
+    #mind, #heart, #hug, #down {
+        width: 120px;
+        height: 120px;
+    }
+    #frame {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        filter: grayscale(100%);
+        z-index: -1; /* Puts frame behind the poem */
+    }
+
+}
+
+@media (max-width: 800px) {
+    #poem {
+        width: 60%;
+        font-size: 12px;
+    }
+
+    #mind, #heart, #hug, #down {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #frame {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        filter: grayscale(100%);
+        z-index: -1; /* Puts frame behind the poem */
+    }
+}
+
+@media (max-width: 600px) {
+    #mind, #heart, #hug, #down {
+        display: none; /* Hide images on very small screens */
+    }
+
+    #poem {
+        width: 50%;
+        font-size: 10px;
+    }
+
+    #frame {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        filter: grayscale(100%);
+        z-index: -1; /* Puts frame behind the poem */
+    }
+
+}
+
+
+/* SWITCH STYLING */
+.switch-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.theme_switch_label {
+    font-family: 'Creepster', cursive;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000;
+    margin-right: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    border: 2px solid #666;
+    border-radius: 40px;
+    background: #333;
+    transition: background-color 0.4s;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #444;
+    transition: 0.4s;
+    border-radius: 40px;
+    box-shadow: inset 0 0 10px #111;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 5px;
+    bottom: 5px;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+input:checked + .slider {
+    background-color: #222;
+}
+
+input:checked + .slider:before {
+    transform: translateX(36px);
+}

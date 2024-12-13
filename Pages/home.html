@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oline Kleiven Portfolio</title>
+    <link rel="stylesheet" href="style/home.css">
+    <link rel="stylesheet" href="style/categories.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Explore My Portfolio</h1>
+  </header>
+  
+    <!-- A round navigation menu-->
+    <section class="navigation">
+        <div class="circle-nav">
+            <a href="about.html" class="nav-item" data-text="About" onclick="zoomAndNavigate(event, 'about.html')">About <br> Me</a>
+            <a href="contact.html" class="nav-item" data-text="Contact" onclick="zoomAndNavigate(event, 'contact.html')">Contact</a>
+            <a href="skills.html" class="nav-item" data-text="Skills" onclick="zoomAndNavigate(event, 'skills.html')">Skills</a>
+            <a href="jobs.html" class="nav-item" data-text="Jobs" onclick="zoomAndNavigate(event, 'jobs.html')">Jobs</a>
+            <a href="gallery.html" class="nav-item" data-text="Gallery" onclick="zoomAndNavigate(event, 'gallery.html')">Gallery</a>
+            <a href="hobbies.html" class="nav-item" data-text="Hobbies" onclick="zoomAndNavigate(event, 'hobbies.html')">Hobbies</a>
+
+    <!-- Puts the picture here, so its sticks better to circle-nav before cirle thats inside the circle-nav -->
+            <div class="profile-image-container">
+                <img src="images/profil.HEIC" alt="Profile Image" id="profile-image">
+            </div>
+        </div>
+    </section> 
+
+    <!-- did not found any semantic markups to replace this-->
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Seach for words...">
+        <div id="search-results"></div>
+    </div>
+
+    <!-- Java Script for search-container function-->
+    <script>
+        function zoomAndNavigate(event, targetUrl) {
+            event.preventDefault();
+      
+            const circleNav = document.querySelector('.circle-nav');
+            const header = document.querySelector('.header');
+            const profileImage = document.querySelector('#profile-image');
+            
+            circleNav.classList.add('zooming');
+            header.classList.add('fade-out');
+            profileImage.classList.add('fade-out');
+      
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 1000); // Match this timeout to the animation duration (1 second)
+        }
+        document.addEventListener('DOMContentLoaded', async () => {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+
+    // Every file it will search in
+    const pagesToSearch = ['index.html', 'about.html', 'skills.html', 'jobs.html', 'gallery.html', 'hobbies.html'];
+
+    // Object to store the content of each page
+    const pageContents = {};
+
+    // Pick up the content of each page
+    for (const page of pagesToSearch) {
+        try {
+            const response = await fetch(page);
+            const text = await response.text();
+            pageContents[page] = text;
+        } catch (error) {
+            console.error(`Kunne ikke laste ${page}:`, error);
+        }
+    }
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+
+        if (query) {
+            const matches = [];
+
+            // Search though the content of each page
+            for (const [page, content] of Object.entries(pageContents)) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(content, 'text/html');
+
+                 // Search after these elements, that visualize text
+                const elementsToSearch = doc.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li, a');
+                elementsToSearch.forEach(element => {
+                    const text = element.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        const matchIndex = text.indexOf(query); // Finn posisjonen til matchet
+                        const matchedWord = element.textContent.substring(matchIndex, matchIndex + query.length); // Trekk ut ordet
+                        matches.push({
+                            text: matchedWord,
+                            tagName: element.tagName,
+                            page: page
+                        });
+                    }
+                });
+            }
+
+            if (matches.length > 0) {
+                matches.forEach(match => {
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add('search-result-item');
+                    resultItem.innerHTML = `<a href="#">${match.text}</a> (${match.tagName})`;
+
+                    // Navigate to the page when clicking on the word it found!
+                    resultItem.addEventListener('click', (e) => {
+                        e.preventDefault(); 
+                        window.location.href = match.page; // Navigate to the page where the match was found, and show us
+                    });
+
+                    searchResults.appendChild(resultItem);
+                });
+
+                searchResults.style.display = 'block';
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>

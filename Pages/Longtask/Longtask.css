@@ -1,0 +1,243 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eae0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    color: black;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 3rem; /* Gjør teksten større */
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    font-weight: 700; /* Gjør teksten fetere */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtil skygge for dybde */
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2rem; /* Litt større tekst for bedre lesbarhet */
+    color: black;
+    font-weight: 500; /* Gjør teksten litt fetere */
+    letter-spacing: 0.5px; /* Subtil spredning for bedre estetikk */
+    font-style: italic; /* Gir teksten en kul og variert stil */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#card-container {
+    width: 570px;
+    height: 570px;
+    perspective: 1200px; /* Økt perspektiv for en bedre 3D-effekt */
+    margin-bottom: 20px;
+}
+
+.flashcard {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.flashcard .front,
+.flashcard .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Juster innhold vertikalt */
+    justify-content: flex-start; /* Start innhold fra toppen */
+    padding: 20px;
+    box-sizing: border-box; /* Ta padding i betraktning */
+}
+
+.flashcard .front {
+    background: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard .front img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.flashcard .back {
+    text-align: left; /* Venstrejuster teksten */
+    background-color: #d85c51;
+    color: #fff;
+    font-size: 1.2rem;
+    transform: rotateY(180deg);
+    font-weight: normal; /* Reduser vekten for bedre lesbarhet */
+    text-shadow: none;
+    overflow: auto; /* Tillat scrolling for lange tekster */
+}
+
+.flashcard .back h2 {
+    margin: 0 0 10px;
+    font-size: 1.8rem; /* Moderat fontstørrelse */
+    font-weight: bold;
+    color: #fff;
+}
+
+.flashcard .back p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.5; /* Øk linjeavstanden for bedre lesbarhet */
+}
+
+/* Rotasjon ved flipping */
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Responsiv design */
+@media screen and (max-width: 600px) {
+    #card-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .flashcard .front img {
+        width: 80%;
+    }
+
+    .flashcard .back {
+        font-size: 1rem;
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d85c51;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #9e3930;
+    transform: scale(1.1);
+}
+
+
+.module-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.module-list li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+
+/* Back button styling */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Avstand fra toppen */
+    left: 40px; /* Avstand fra venstre */
+    height: 60px;
+    width: 50px;
+    transition: transform 0.1s;
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    background-color: #333; /* Fits better here to start with white color */
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg); /* Left-arrow pil */
+    transform-origin: bottom left;
+    transition-delay: 0.2s; 
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg); 
+    top: 43%; 
+    transform-origin: top left;
+    transition-delay: 0s; 
+}
+
+.back-button .arrow-top:after,
+.back-button .arrow-bottom:after {
+    content: "";
+    background-color: #a4473e; /* gets dark when you hover*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s ease; 
+}
+
+.back-button .arrow-top:after {
+    right: 100%;
+    left: 0;
+}
+
+.back-button .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.1s; 
+}
+
+.back-button:hover .arrow-top:after {
+    right: 0;
+}
+
+.back-button:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
