@@ -6,6 +6,11 @@
     padding: 20px;
 }
 
+/* Centering the heading and paragraph text */
+h1, p {
+    text-align: center;
+}
+
 /* Styling for each project folder */
 .project-folder {
     position: relative; 
