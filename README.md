@@ -43,10 +43,7 @@ My passion is **universal design** - making digital experiences that work for ev
 
 ## Projects
 
-- **Drikkelek** - Interactive drinking game
-- **Diagram Flashcards** - Study tool
-- **Long Task Flashcards** - Question bank
-- **Student Website** - Web design showcase
+Will update this futher
 
 ## Getting Started
 
