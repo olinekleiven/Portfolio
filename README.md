@@ -8,7 +8,7 @@ This portfolio was developed as part of the Web Design 1 course at the Universit
 
 ## About Me
 
-Hi! I'm **Oline Kleiven**, a 22-year-old student from Leikanger in Sogn, Norway. I'm currently studying at the University of Bergen with a creative mind and a passion for visual design. I love creating things that look visually beautiful and make technology more accessible for everyone.
+Hi! I'm **Oline Kleiven**, a 23-year-old student from Leikanger in Sogn, Norway. I'm studying master in "Media and interactionsdesign" at the University of Bergen. I love creating things that look visually beautiful and make technology more accessible for everyone.
 
 My passion is **universal design** - making digital experiences that work for everyone, regardless of their abilities or circumstances.
 
