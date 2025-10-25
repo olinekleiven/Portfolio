@@ -1,0 +1,252 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 20px; /* Lagt til padding til kantene */
+}
+
+.content {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* Contact-specific styles */
+.connectGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 70px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  border: 2px solid var(--text-primary);
+  background-color: var(--nav-inner);
+}
+
+.detailsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.detailText a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.detailText a:hover {
+  color: var(--nav-1);
+}
+
+.socialMedia {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socialIcon {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 8px;
+  border: 2px solid var(--text-primary);
+  background-color: var(--white);
+  transition: transform 0.2s ease;
+}
+
+.socialIcon:hover {
+  transform: scale(1.1);
+}
+
+.socialIconImg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.skillItem {
+  padding: 30px;
+  background-color: var(--nav-inner);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+}
+
+.skillItem h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.skillItem p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.jobItem {
+  padding: 30px;
+  background-color: var(--nav-inner);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.jobItem:hover {
+  transform: translateY(-5px);
+}
+
+.jobItem h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.jobItem p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Hobbies-specific styles */
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hobbyButton {
+  background-color: var(--nav-6); /* Purple color */
+  color: var(--white);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hobbyButton:hover {
+  background-color: var(--nav-6-hover);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+  }
+  
+  .content p {
+    font-size: 1.1rem;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hobbyButton {
+    width: 200px;
+    padding: 12px 24px;
+  }
+  
+  .contactInfo,
+  .skillsGrid,
+  .hobbiesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contactItem,
+  .skillItem,
+  .jobItem,
+  .hobbyItem {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 15px;
+  }
+  
+  .content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+  }
+  
+  .contactItem,
+  .skillItem,
+  .jobItem,
+  .hobbyItem {
+    padding: 15px;
+  }
+}

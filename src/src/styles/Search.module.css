@@ -1,0 +1,93 @@
+.searchContainer {
+  position: fixed;
+  top: 10px;
+  right: 70px; /* Flyttet til venstre for å gi plass til dark mode knappen */
+  width: 200px; /* Gjort kortere */
+  z-index: 1000;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--nav-1);
+  box-shadow: 0 0 0 2px rgba(132, 160, 199, 0.2);
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.searchResults {
+  background-color: var(--nav-bg);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 5px;
+  box-shadow: 0 4px 12px var(--shadow-dark);
+}
+
+.searchResultItem {
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.searchResultItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.searchResultItem:focus {
+  outline: 2px solid var(--nav-1);
+  outline-offset: 2px;
+}
+
+.resultText {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.resultTag {
+  color: var(--nav-1);
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .searchContainer {
+    width: 150px; /* Enda kortere på mobile */
+    top: 5px;
+    right: 50px; /* Justert for mobile */
+  }
+  
+  .searchInput {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .searchResults {
+    max-height: 150px;
+    padding: 8px;
+  }
+  
+  .searchResultItem {
+    padding: 6px 0;
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram Flashcards</title>
+    <link rel="stylesheet" href="flashcards.css">
+</head>
+<body>
+    <a href="../../src/pages/Skills" class="back-button" aria-label="Back to skills section">
+        <span class="arrow-top"></span>
+        <span class="arrow-bottom"></span>
+    </a>
+
+    <div class="flashcard-container">
+        <!-- Flashcard 1 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>Use Case Diagram</h2>
+                <img src="Diagrams/use_case_diagram.png" alt="Use Case Diagram" class="diagram-image">
+                <p>What is this diagram used for?</p>
+            </div>
+            <div class="answer">
+                <p>Illustrates how users interact with a system and what functions the system provides.</p>
+            </div>
+        </div>
+
+        <!-- Flashcard 2 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>Class Diagram</h2>
+                <img src="Diagrams/class_diagram.png" alt="Class Diagram" class="diagram-image">
+                <p>What does this diagram represent?</p>
+            </div>
+            <div class="answer">
+                <p>Shows the static structure of a system, including classes, their attributes, operations, and relationships.</p>
+            </div>
+        </div>
+
+        <!-- Flashcard 3 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>Activity Diagram</h2>
+                <img src="Diagrams/activity_diagram.png" alt="Activity Diagram" class="diagram-image">
+                <p>When is this diagram typically used?</p>
+            </div>
+            <div class="answer">
+                <p>Models the flow of control or data between activities, often used for business process modeling.</p>
+            </div>
+        </div>
+
+        <!-- Flashcard 4 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>Sequence Diagram</h2>
+                <img src="Diagrams/sequence_diagram.png" alt="Sequence Diagram" class="diagram-image">
+                <p>What is the primary focus of this diagram?</p>
+            </div>
+            <div class="answer">
+                <p>Illustrates the order of messages exchanged between objects in a specific scenario over time.</p>
+            </div>
+        </div>
+
+        <!-- Flashcard 5 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>State Machine Diagram</h2>
+                <img src="Diagrams/state_machine_diagram.png" alt="State Machine Diagram" class="diagram-image">
+                <p>What does this diagram describe?</p>
+            </div>
+            <div class="answer">
+                <p>Shows the different states an object can have and the transitions between those states in response to events.</p>
+            </div>
+        </div>
+
+        <!-- Flashcard 6 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped');">
+            <div class="front">
+                <h2>Component Diagram</h2>
+                <img src="Diagrams/component_diagram.png" alt="Component Diagram" class="diagram-image">
+                <p>What is the purpose of this diagram?</p>
+            </div>
+            <div class="answer">
+                <p>Depicts the components of a system and the relationships between them, often showing the physical packaging of elements.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

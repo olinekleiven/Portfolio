@@ -1,0 +1,138 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 20px;
+}
+
+/* Main grid container */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 40px; /* Distance between text and picture */
+  align-items: center; 
+  padding: 40px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+/* Style for the text section */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.textContent h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.textContent p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Contact-button */
+/* Style for call-to-action button */
+.contactButton {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: start;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #555;
+}
+
+/* Picture-part */
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  width: 100%;
+  max-width: 500px; 
+  border-radius: 10px; /* Make the corner rounder, looked better */
+}
+
+/* Responsive design */
+
+/* Tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .gridContainer {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      text-align: center; 
+  }
+
+  .textContent {
+      align-items: center;
+      padding: 10px;
+  }
+
+  .contactButton {
+      align-self: center; 
+  }
+
+  .profileImage {
+      max-width: 400px;
+  }
+}
+
+/* Devices smaller than tablets, like large phones */
+@media (max-width: 768px) {
+  .gridContainer {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      text-align: center; 
+  }
+
+  .textContent {
+      align-items: center;
+      padding: 10px;
+  }
+
+  .contactButton {
+      align-self: center; 
+  }
+
+  .profileImage {
+      max-width: 300px; 
+  }
+}
+
+/* Mobile phone devices */
+@media (max-width: 480px) {
+  .gridContainer {
+      grid-template-columns: 1fr; 
+      gap: 10px;
+      text-align: center; 
+  }
+
+  .textContent {
+      align-items: center;
+      padding: 5px;
+  }
+
+  .contactButton {
+      align-self: center; 
+      padding: 8px 16px;
+  }
+
+  .profileImage {
+      max-width: 250px; 
+  }
+}

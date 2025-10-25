@@ -1,0 +1,164 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.welcomeSection {
+  text-align: center;
+  color: var(--text-primary);
+  animation: fadeIn 1s ease-in;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.welcomeSection h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.welcomeSection p {
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  color: var(--text-secondary);
+}
+
+.customArrow {
+  position: absolute;
+  bottom: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.arrow {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-top: 10px solid var(--text-primary);
+  border-right: 10px solid var(--text-primary);
+  transform: rotate(135deg);
+  transition: transform 0.2s ease;
+  animation: bounce 1.5s infinite;
+}
+
+.customArrow:hover .arrow {
+  border-color: var(--white);
+}
+
+.customArrow:active .arrow {
+  transform: rotate(135deg) scale(0.9);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 10;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive design for mobile devices */
+@media only screen and (max-width: 600px) {
+  .welcomeSection h1 {
+    font-size: 2em;
+  }
+
+  .welcomeSection p {
+    font-size: 1em;
+  }
+
+  .customArrow {
+    bottom: 30px;
+  }
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+    border-top: 8px solid var(--text-primary);
+    border-right: 8px solid var(--text-primary);
+  }
+}
+
+/* Responsive design for iPad devices */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .welcomeSection h1 {
+    font-size: 2.2em;
+  }
+
+  .welcomeSection p {
+    font-size: 1.1em;
+  }
+
+  .customArrow {
+    bottom: 40px;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    border-top: 9px solid var(--text-primary);
+    border-right: 9px solid var(--text-primary);
+  }
+}
+
+/* Responsive design for Mac devices */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .welcomeSection h1 {
+    font-size: 2.5em;
+  }
+
+  .welcomeSection p {
+    font-size: 1.3em;
+  }
+
+  .customArrow {
+    bottom: 50px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    border-top: 10px solid var(--text-primary);
+    border-right: 10px solid var(--text-primary);
+  }
+}
+
+/* Responsive design for extra large screens */
+@media only screen and (min-width: 1441px) {
+  .welcomeSection h1 {
+    font-size: 3em;
+  }
+
+  .welcomeSection p {
+    font-size: 1.5em;
+  }
+
+  .customArrow {
+    bottom: 60px;
+  }
+
+  .arrow {
+    width: 45px;
+    height: 45px;
+    border-top: 12px solid var(--text-primary);
+    border-right: 12px solid var(--text-primary);
+  }
+}

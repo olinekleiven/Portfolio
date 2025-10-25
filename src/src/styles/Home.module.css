@@ -1,0 +1,545 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 20px;
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4); 
+        opacity: 0;
+    }
+}
+
+.circleNav.zooming,
+.profileImage.zooming {
+    animation: zoomIn 0.8s forwards ease-in;
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Needed both of these to make the zoom-out animation for header */
+.header.fadeOut {
+    animation: fadeOut 0.5s forwards ease-in-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: var(--text-primary);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* position of the navigation bar */
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* The navigation bar */
+.circleNav {
+    position: relative; /* Important for the position of the nav.items!*/
+    width: 700px;
+    height: 700px;
+    border-radius: 50%; /* Makes it a circle*/
+    background: var(--nav-bg);
+    box-shadow: 0 0 20px var(--shadow-dark), inset 0 0 5px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .circle-nav::before oppdatert */
+.circleNav::before {
+    content: '';
+    position: absolute;
+    width: 55%; 
+    height: 55%;
+    background-color: var(--nav-inner); /* color on the inner circle  */
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--shadow-dark), inset 0 0 5px rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 1; /* position this, so the nav items gets over the circle in the middel*/
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Oppdatert .profile-image-container */
+.profileImageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%; 
+    height: 55%;
+    border-radius: 50%; /* makes it round */
+    overflow: hidden; 
+    z-index: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Oppdatert #profile-image */
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%; 
+    z-index: 1; 
+}
+
+/* Samme som header, fader ut */
+.profileImage.fadeOut {
+    animation: fadeOut 0.5s forwards ease-in-out;
+}
+
+/* Navigation items */
+.navItem {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    z-index: 2; 
+    text-shadow: 1px 1px 2px #000; 
+    text-align: center; /* center the text */
+}
+
+/* Positioning each navigation item evenly within a circular layout:
+   - Ensured that child 2 and 5 have the same `top` value, and their `left` values add up to 100% for symmetry.
+   - Adjusted child 3 and 4 to match a similar vertical and horizontal alignment.
+   - Added a 6th child; all positions (`top` and `left`) were recalculated to fit the new layout.
+   - Each item is centered using `transform: translate(-50%, -50%)`.
+*/
+
+/* Navigation item 1: Positioned at the top center */
+.navItem:nth-child(1) {
+    top: 10%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #84a0c7;
+}
+
+/* Navigation item 2: Positioned at the top-right corner */
+.navItem:nth-child(2) {
+    top: 30%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    background-color: #7fd184;
+}
+
+/* Navigation item 3: Positioned at the bottom-right corner */
+.navItem:nth-child(3) {
+    top: 70%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    background-color: #cfa967;
+}
+
+/* Navigation item 4: Positioned at the bottom center */
+.navItem:nth-child(4) {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #cf8167;
+}
+
+/* Navigation item 5: Positioned at the bottom-left corner */
+.navItem:nth-child(5) {
+    top: 70%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    background-color: #cf6767;
+}
+
+/* Navigation item 6: Positioned at the top-left corner */
+.navItem:nth-child(6) {
+    top: 30%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    background-color: #a58dcd;
+}
+
+/* Adjust the hover effect, changing the colors to a darker shade,
+    -this to indicate they are clickable */
+.navItem:nth-child(1):hover {
+    background-color: #6b86a4;
+}
+
+.navItem:nth-child(2):hover {
+    background-color: #68b16e;
+}
+
+.navItem:nth-child(3):hover {
+    background-color: #b5884d;
+}
+
+.navItem:nth-child(4):hover {
+    background-color: #b56851;
+}
+
+.navItem:nth-child(5):hover {
+    background-color: #a45454;
+}
+
+.navItem:nth-child(6):hover {
+    background-color: #8e74b5;
+}
+
+/* Hover effect for the buttons */
+.navItem:hover {
+    transform: scale(1.1) translate(-45%, -55%); /* need to put this here to get the hover transaction as i wanted*/
+    transition: transform 0.3s ease-in-out; /* makes it smooth */
+}
+
+/* Responsive design for different devices, i have adjust size on the navigation bar, 
+the buttons, letters, the distance from the top, and made it good on any devices  */
+
+/* Responsive design for mobile */
+/* more detailed for different phones further down!*/
+
+@media only screen and (max-width: 600px) {
+    .header h1 {
+        font-size: 2.2em;
+    }
+    .circleNav {
+        width: 500px;
+        height: 500px;
+    }
+    .circleNav::before {
+        width: 290px;
+        height: 290px;
+    }
+    .profileImageContainer {
+        width: 265px;
+        height: 265px;
+        top: 54%; /* Justerer plasseringen */
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+    }
+}   
+
+/* Responsive design for iPad */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .header h1 {
+        font-size: 2.4em;
+    }
+    .circleNav {
+        width: 530px;
+        height: 530px;
+    }
+    .circleNav::before {
+        width: 310px;
+        height: 310px;
+    }
+    .profileImageContainer {
+        width: 280px;
+        height: 280px;
+        top: 54%; 
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 85px;
+        height: 85px;
+        font-size: 17px;   
+    }
+}
+
+/* Responsive design for Mac */
+@media only screen and (min-width: 1025px) and (max-width: 1500px) {
+    .header h1 {
+        font-size: 2.5em;
+    }
+    .circleNav {
+        width: 560px;
+        height: 560px;
+    }
+    .circleNav::before {
+        width: 320px;
+        height: 320px;
+    }
+    .profileImageContainer {
+        width: 300px;
+        height: 300px;
+        top: 53%; 
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 90px;
+        height: 90px;
+        font-size: 18px;
+    }
+}
+
+/* Responsive design for medium-large screens */
+@media only screen and (min-width: 1500px) and (max-width: 1700px) {
+    .header h1 {
+        font-size: 2.9em;
+    }
+    .circleNav {
+        width: 590px; 
+        height: 590px;
+    }
+    .circleNav::before {
+        width: 340px; 
+        height: 340px;
+    }
+    .profileImageContainer {
+        width: 320px; 
+        height: 320px;
+        top: 53%; 
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 95px; 
+        height: 95px;
+        font-size: 19px; 
+    }
+}
+
+/* Responsive design for larger screens */
+@media only screen and (min-width: 1701px) and (max-width: 1900px) {
+    .header h1 {
+        font-size: 3.2em; 
+    }
+    .circleNav {
+        width: 620px;
+        height: 620px;
+    }
+    .circleNav::before {
+        width: 360px;
+        height: 360px;
+    }
+    .profileImageContainer {
+        width: 340px;
+        height: 340px;
+        top: 53%; 
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 100px; 
+        height: 100px;
+        font-size: 20px; 
+    }
+}
+
+/* Responsive design for the large screens you connect with on the datalab on uphil!*/
+@media only screen and (min-width: 1901px) and (max-width: 2100px) {
+    .header h1 {
+        font-size: 3.2em; 
+    }
+    .circleNav {
+        width: 620px; 
+        height: 620px;
+    }
+    .circleNav::before {
+        width: 360px;
+        height: 360px;
+    }
+    .profileImageContainer {
+        width: 320px;
+        height: 320px;
+        top: 55%; 
+    }
+    .profileImage {
+        width: 100%;
+        height: 100%;
+    }
+    .navItem {
+        width: 100px; 
+        height: 100px;
+        font-size: 20px; 
+    }
+}
+
+/* Responsive design for different phone-devices */
+
+/* Small devices (fro example iPhone SE) */
+@media only screen and (max-width: 375px) {
+    .header h1 {
+        font-size: 1.8em; 
+        margin-top: 5%;
+    }
+    .circleNav {
+        width: 300px; /* Smaller navigation circle  */
+        height: 300px;
+    }
+    .circleNav::before {
+        width: 180px; /* Samller inner circle */
+        height: 180px;
+    }
+    .profileImageContainer {
+        width: 150px; /* smaller picture */
+        height: 150px;
+        top: 58%; /* placement */
+    }
+    .navItem {
+        width: 50px; /* smaller naviagtion buttons */
+        height: 50px;
+        font-size: 12px; /* smaller text on the buttons */
+    }
+}
+
+/* For small devices, like iphne 14 pro*/
+@media only screen and (min-width: 376px) and (max-width: 540px) {
+    .header h1 {
+        font-size: 1.8em;
+        margin-top: 10%; /* For phones, its looks better to ha the navigation in the middle on the screen
+        easier to click on with one hand*/
+    }
+    .circleNav {
+        width: 380px; 
+        height: 380px;
+    }
+    .circleNav::before {
+        width: 220px;
+        height: 220px;
+    }
+    .profileImageContainer {
+        width: 200px; 
+        height: 200px;
+        top: 54%; 
+    }
+    .navItem {
+        width: 60px; 
+        height: 60px;
+        font-size: 12px; 
+    }
+}
+
+/* For mellomstore skjermer (bredde 541px til 600px, f.eks. mellomstore telefoner) */
+@media only screen and (min-width: 541px) and (max-width: 600px) {
+    .header h1 {
+        font-size: 2em;
+        margin-top: 10%; /* For phones, its looks betetr to ha the navigation in the middle */
+    }
+    .circleNav {
+        width: 400px; 
+        height: 400px;
+    }
+    .circleNav::before {
+        width: 240px;
+        height: 240px;
+    }
+    .profileImageContainer {
+        width: 210px; 
+        height: 210px;
+        top: 56%; 
+
+    }
+    .navItem {
+        width: 60px; /* Middels navigasjonsknapper */
+        height: 60px;
+        font-size: 13px; /* Justert tekststørrelse */
+    }
+}
+
+/* For skjermer mellom 601px og 768px (f.eks. tablets og store telefoner) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2em;
+        margin-top: 10%; 
+    }
+    .circleNav {
+        width: 450px;
+        height: 450px;
+    }
+    .circleNav::before {
+        width: 270px; 
+        height: 270px;
+    }
+    .profileImageContainer {
+        width: 240px; 
+        height: 240px;
+        top: 55%; 
+    }
+    .navItem {
+        width: 80px;
+        height: 80px;
+        font-size: 18px;
+    }
+}
+
+/* supersmall screens (under 375px width) */
+@media only screen and (max-width: 375px) {
+    .header h1 {
+        font-size: 1.2em; 
+        margin-top: 10%;
+    }
+    .circleNav {
+        width: 90vw; 
+        height: 90vw; 
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .circleNav::before {
+        width: 60%; 
+        height: 60%;
+    }
+    .profileImageContainer {
+        width: 54%; 
+        height: 54%;
+        top: 55%; 
+    }
+    .navItem {
+        width: 40px;
+        height: 40px;
+        font-size: 8px;
+
+    }
+}

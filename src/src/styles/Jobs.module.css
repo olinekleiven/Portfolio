@@ -1,0 +1,158 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 40px 0;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto; /* Center align the timeline */
+  width: 100%;
+}
+
+/* Vertical timeline line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #FF9F55;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Center the line */
+}
+
+/* Timeline container boxes */
+.timelineContainer {
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  padding: 10px 40px;
+}
+
+/* Timeline dots */
+.timelineContainer::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #ffffff;
+  border: 6px solid #FF9F55;
+  border-radius: 50%; /* Makes it circular */
+  top: 15px;
+  right: -17px;
+  z-index: 1;
+}
+
+/* Left-aligned containers */
+.left {
+  left: 0;
+}
+
+/* Right-aligned containers */
+.right {
+  left: 50%;
+}
+
+/* Adjust dot position for right-aligned containers */
+.right::after {
+  left: -16px;
+}
+
+/* Content inside timeline containers */
+.content {
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.jobHeader {
+    margin-bottom: 15px;
+}
+
+.year {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.jobTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive adjustments for screens less than 600px */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .timeline::after {
+    left: 31px; /* Move the line to the left */
+  }
+
+  .timelineContainer {
+    width: 100%; /* Make containers full width */
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timelineContainer::before {
+    left: 60px; /* Align arrows */
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  .left::after,
+  .right::after {
+    left: 15px; /* Align all dots */
+  }
+
+  .right {
+    left: 0; /* Make all right containers behave like left ones */
+  }
+}
+
+/* Reduce size of the heading*/
+@media only screen and (max-width: 600px) {
+  h1 {
+      font-size: 2em; 
+      margin-top: 10px; 
+      text-align: center; 
+  }
+}

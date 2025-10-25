@@ -1,0 +1,125 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 40px 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Contact Section Styling */
+.connectGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    border: 2px solid #333; /* Ensartet styling av kantlinjen */
+}
+
+/* List Styling */
+.detailsList {
+    list-style: none; /* No list points */
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    flex-direction: column; /* Tabulates the list items vertically */
+    gap: 20px; /* Distance between list elements */
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Distance between icon and text*/
+    font-size: 18px;
+}
+
+/* Icon Styling */
+.icon {
+    width: 40px; 
+    height: 40px;
+}
+
+/* Link Styling */
+/* Styling for sources in contact info */
+.detailText a {
+    text-decoration: none; /* no underline  */
+    color: #333; 
+    font-weight: bold; 
+    font-size: 20px; 
+    transition: color 0.3s ease; /* smooth hover-effect */
+}
+
+.detailText a:hover {
+    color: #04AA6D; /* change textcolor, the theme color for this page */
+}
+
+/* Social Media Section*/
+.socialMedia {
+    display: flex;
+    gap: 50px; 
+    justify-content: center; 
+    margin-top: 100px; /* Distance from the section over*/
+}
+
+/* Styling for social media icons */
+.socialIconImg {
+    width: 80px; /* Standard width for icons */
+    transition: transform 0.3s ease; 
+}
+
+.socialIconImg:hover {
+    transform: scale(1.1); 
+}
+
+/* Responsive design */
+/* The content on this page is minimal and simple, so therefore no need for many breakpoints */
+
+@media (max-width: 768px) {
+    .connectGrid {
+        padding: 20px; /* Reduce padding */
+        max-width: 90%; /* Adjust the width for better fit on mobile devices */
+    }
+
+    .socialMedia {
+        gap: 30px; 
+    }
+
+    .socialIconImg {
+        width: 60px; 
+    }
+}
+
+/* Smaller Screens */
+@media (max-width: 480px) {
+    .detailItem {
+        font-size: 16px; 
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .socialIconImg {
+        width: 50px; 
+    }
+}

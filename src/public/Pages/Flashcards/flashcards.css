@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.flashcard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.flashcard {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.flashcard h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.flashcard p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    color: #666;
+}
+
+.flashcard .diagram-image {
+    max-width: 100%;
+    max-height: 120px; /* Adjust as needed */
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.flashcard .answer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e0f7fa; /* Light blue background for answer */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.1em;
+    color: #00796b; /* Dark teal color for answer text */
+    transform: rotateY(90deg);
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+}
+
+.flashcard.flipped .answer {
+    transform: rotateY(0deg);
+}
+
+.flashcard.flipped .front {
+    transform: rotateY(-90deg);
+}
+
+.flashcard .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Back button styling */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #8663ba; /* Purple background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background-color: #6a4c93; /* Darker purple on hover */
+    transform: scale(1.05);
+}
+
+.back-button .arrow-top,
+.back-button .arrow-bottom {
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.back-button .arrow-top {
+    transform: rotate(-45deg) translate(-3px, 0px);
+}
+
+.back-button .arrow-bottom {
+    transform: rotate(45deg) translate(-3px, 0px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .flashcard {
+        width: 90%;
+        height: 180px;
+    }
+
+    .flashcard h2 {
+        font-size: 1.3em;
+    }
+
+    .flashcard p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard {
+        height: 160px;
+        padding: 15px;
+    }
+
+    .flashcard h2 {
+        font-size: 1.2em;
+    }
+
+    .flashcard p {
+        font-size: 0.8em;
+    }
+
+    .back-button {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        left: 15px;
+    }
+}

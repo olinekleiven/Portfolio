@@ -1,0 +1,150 @@
+.backButton {
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  height: 60px;
+  width: 50px;
+  background: none;
+  border: none;
+  transition: transform 0.1s;
+  z-index: 10;
+}
+
+.backButton .arrowTop,
+.backButton .arrowBottom {
+  background-color: var(--text-primary);
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.backButton .arrowTop {
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  transition-delay: 0.2s;
+}
+
+.backButton .arrowBottom {
+  transform: rotate(45deg);
+  top: 43%;
+  transform-origin: top left;
+  transition-delay: 0s;
+}
+
+.backButton .arrowTop:after,
+.backButton .arrowBottom:after {
+  content: "";
+  background-color: var(--white);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.15s ease;
+}
+
+.backButton .arrowTop:after {
+  right: 100%;
+  left: 0;
+}
+
+.backButton .arrowBottom:after {
+  left: 100%;
+  right: 0;
+  transition-delay: 0.1s;
+}
+
+.backButton:hover .arrowTop:after {
+  right: 0;
+}
+
+.backButton:hover .arrowBottom:after {
+  left: 0;
+  transition-delay: 0s;
+}
+
+.backButton:active {
+  transform: scale(0.9);
+}
+
+.backButton:focus {
+  outline: 2px solid var(--nav-1);
+  outline-offset: 2px;
+}
+
+/* Responsive design for different devices */
+
+/* For mobile */
+@media only screen and (max-width: 600px) {
+  .backButton {
+    top: 20px;
+    left: 20px;
+    height: 40px;
+    width: 35px;
+  }
+
+  .backButton .arrowTop,
+  .backButton .arrowBottom {
+    height: 7px;
+  }
+}
+
+/* For iPad */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .backButton {
+    top: 30px;
+    left: 30px;
+    height: 50px;
+    width: 45px;
+  }
+
+  .backButton .arrowTop,
+  .backButton .arrowBottom {
+    height: 8px;
+  }
+}
+
+/* For Mac */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .backButton {
+    top: 40px;
+    left: 40px;
+    height: 60px;
+    width: 50px;
+  }
+
+  .backButton .arrowTop,
+  .backButton .arrowBottom {
+    height: 10px;
+  }
+}
+
+/* For large screens between Mac and extra large */
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
+  .backButton {
+    top: 45px;
+    left: 45px;
+    height: 65px;
+    width: 55px;
+  }
+
+  .backButton .arrowTop,
+  .backButton .arrowBottom {
+    height: 12px;
+  }
+}
+
+/* For extra large screens */
+@media only screen and (min-width: 1601px) {
+  .backButton {
+    top: 50px;
+    left: 50px;
+    height: 70px;
+    width: 60px;
+  }
+
+  .backButton .arrowTop,
+  .backButton .arrowBottom {
+    height: 12px;
+  }
+}

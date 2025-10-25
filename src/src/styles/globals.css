@@ -1,0 +1,133 @@
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light theme colors */
+  --bg-primary: #eee5e5;
+  --text-primary: #333;
+  --text-secondary: #555;
+  --nav-bg: linear-gradient(145deg, #3a3a3a, #1e1e1e);
+  --nav-inner: #eee5e5;
+  --button-bg: #333;
+  --button-hover: #555;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  
+  /* Navigation item colors */
+  --nav-1: #84a0c7;
+  --nav-1-hover: #6b86a4;
+  --nav-2: #7fd184;
+  --nav-2-hover: #68b16e;
+  --nav-3: #cfa967;
+  --nav-3-hover: #b5884d;
+  --nav-4: #cf8167;
+  --nav-4-hover: #b56851;
+  --nav-5: #cf6767;
+  --nav-5-hover: #a45454;
+  --nav-6: #a58dcd;
+  --nav-6-hover: #8e74b5;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --nav-bg: linear-gradient(145deg, #2a2a2a, #0a0a0a);
+  --nav-inner: #2a2a2a;
+  --button-bg: #e0e0e0;
+  --button-hover: #b0b0b0;
+  --white: #ffffff;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Common animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(135deg);
+  }
+  40% {
+    transform: translateY(-10px) rotate(135deg);
+  }
+  60% {
+    transform: translateY(-5px) rotate(135deg);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--button-bg);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.theme-toggle:hover {
+  background: var(--button-hover);
+  transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    top: 15px;
+    right: 15px;
+  }
+}
